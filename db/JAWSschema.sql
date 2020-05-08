@@ -1,0 +1,13 @@
+USE tbaj5689h8ur2bzf;
+
+CREATE TABLE burgers(
+    id INTEGER NOT NULL AUTO_INCREMENT, 
+    burger_name VARCHAR(45) NULL,
+    devoured BOOLEAN DEFAULT false,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+#DROP TABLE burgers;
+
+SELECT * FROM burgers;
