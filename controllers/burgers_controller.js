@@ -88,7 +88,7 @@ module.exports = function (router) {
     router.put("/api/burgers/:id", function (req, res) {
         console.log (req.params.id)
         db.burger.update({
-                devoured: 1
+                devoured: true
             }, {
                 where: {
                     id: req.params.id
