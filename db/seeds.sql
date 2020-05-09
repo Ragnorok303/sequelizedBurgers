@@ -1,10 +1,10 @@
-INSERT INTO burgers (burger_name) VALUES ("Big Mac", False
+INSERT INTO burgers (burger_name, devoured) VALUES ("Big Mac", False
  );
-INSERT INTO burgers (burger_name) VALUES ("Whopper", False
+INSERT INTO burgers (burger_name, devoured) VALUES ("Whopper", False
 );
-INSERT INTO burgers (burger_name) VALUES ("Veggie", False
+INSERT INTO burgers (burger_name, devoured) VALUES ("Veggie", False
 );
-INSERT INTO burgers (burger_name) VALUES ("Krabby Patty", False
+INSERT INTO burgers (burger_name, devoured) VALUES ("Krabby Patty", False
 );
-INSERT INTO burgers (burger_name) VALUES ("Baconator", False
+INSERT INTO burgers (burger_name, devoured) VALUES ("Baconator", False
 );
