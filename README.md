@@ -2,7 +2,7 @@
 
 The challenge for this application was to use Express, Handlebars, and mySql to create an interactive database. Jaws_DB handles the server database. The application achieves this by allowing the user to create and eat burgers! 
 
-The application is currently hosted on heroku [HERE]().
+The application is currently hosted on heroku [HERE](https://powerful-thicket-85633.herokuapp.com/).
 
 ## Functionality
 
