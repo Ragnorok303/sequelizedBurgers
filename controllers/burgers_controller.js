@@ -1,15 +1,17 @@
+var express = require("express");
+var router = express.Router();
 var db = require("../models");
 
 
 
-module.exports = function (app) {
+module.exports = function (router) {
 
     //-----GET ROUTES----------GET ROUTES----------GET ROUTES-----
-    app.get("/", function (req, res) {
+    router.get("/", function (req, res) {
         res.render("signin");
     });
 
-    app.get("/home", function (req, res) {
+    router.get("/home", function (req, res) {
         db.Burger.findAll({}).then(function (data) {
             var availableBurgers = [];
             var oldBurgers = [];
@@ -22,30 +24,30 @@ module.exports = function (app) {
                 }
             });
 
-            //console.log(availableBurgers);
-            //console.log(oldBurgers);
-            //console.log(test);
+            console.log("im available"+availableBurgers);
+            console.log("im old" +oldBurgers);
+            // console.log(test);
             var hbsObject = {
                 allBurgers: data,
                 availableBurgers: availableBurgers,
                 oldBurgers: oldBurgers
             };
 
-            //console.log(hbsObject);
+            // console.log(hbsObject);
 
             res.render("index", hbsObject);
         });
     });
 
     //api get routes
-    app.get("/api/burgers", function (req, res) {
+    router.get("/api/burgers", function (req, res) {
         db.Burger.findAll({}).then(function (data) {
             res.json(data);
             res.status(200).end();
         });
     });
 
-    app.get("/api/burgers/:id", function (req, res) {
+    router.get("/api/burgers/:id", function (req, res) {
         db.Burger.findById(req.params.id)
             .then(function (data) {
                 if (data.length === 0) {
@@ -60,8 +62,8 @@ module.exports = function (app) {
     //-----POST ROUTES----------POST ROUTES----------POST ROUTES-----
 
     //inserts a new burger using a body-parsed param that user enters
-    app.post("/api/burgers", function (req, res) {
-        db.Burger.upsert({
+    router.post("/api/burgers", function (req, res) {
+        db.Burger.create({
             burger_name: req.body.burger_name,
             CustomerId: req.body.CustomerId 
         })
@@ -70,7 +72,7 @@ module.exports = function (app) {
         });
     });
 
-    app.post("/api/customers", function (req, res) {
+    router.post("/api/customers", function (req, res) {
         db.Customer.create({
             customer_name: req.body.customer_name
         })
@@ -83,8 +85,9 @@ module.exports = function (app) {
 
     //-----PUT ROUTES----------PUT ROUTES----------PUT ROUTES-----
     //updates an existing burger in the database using the ID
-    app.put("/api/burgers/:id", function (req, res) {
-        db.Burger.update({
+    router.put("/api/burgers/:id", function (req, res) {
+        console.log (req.params.id)
+        db.burger.update({
                 devoured: 1
             }, {
                 where: {

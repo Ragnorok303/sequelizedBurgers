@@ -33,7 +33,7 @@ $(document).ready(function () {
     $(".eat-btn").on("click", function (e) {
         userCheck();
         e.preventDefault();
-
+        console.log("i press the eat button")
         var id = $(this).data("id");
         console.log("Updating burger with id: " + id);
         $.ajax("api/burgers/" + id, {
