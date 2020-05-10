@@ -1,36 +1,19 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Burger = sequelize.define("Burger", {
-      id: {
-          type: DataTypes.INTEGER,
-          primaryKey: true,
-          autoIncrement: true
-      },
-      burger_name: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-              len: [1]
-          }
-      },
-      devoured: {
-          type: DataTypes.BOOLEAN,
-          defaultValue: false,
-          allowNull: false
-      },
-      createdAt: {
-          type: DataTypes.DATE,
-          allowNull: false,
-          defaultValue: sequelize.literal('CURRENT_TIMESTAMP()'), 
-      },
+    burger_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    devoured: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
+  }, {
+    classMethods: {
+      associate: function (models) {
+        Burger.hasOne(models.Customer);
+      }
+    }
   });
-
-  Burger.associate = function(models) {
-      Burger.belongsTo(models.Customer, {
-          foreignKey: {
-              allowNull: true
-          }
-      });
-  };
-  
   return Burger;
 };

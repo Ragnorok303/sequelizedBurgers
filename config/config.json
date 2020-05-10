@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "R@gnorok303B@man",
-    "database": "SEQburgers_db",
+    "database": "burgers_db",
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
