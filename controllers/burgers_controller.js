@@ -10,7 +10,7 @@ router.get("/", function (req, res) {
   })
   .then(function(dbBurger) {
       var hbsObject = {
-        burger: dbBurger
+        burgers: dbBurger
       };
       return res.render("index", hbsObject);
     });
@@ -28,7 +28,7 @@ router.post("/burgers/insertOne", function (req, res) {
 });
 
 router.put("/burgers/update", function (req, res) {
-  b.Burger.update({
+  db.Burger.update({
     devoured: true
   }, {
     where: {
