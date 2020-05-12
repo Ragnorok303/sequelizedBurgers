@@ -20,8 +20,8 @@
                 <img src="https://i2.wp.com/www.foodrepublic.com/wp-content/uploads/2012/03/033_FR11785.jpg?fit=1000%2C665&ssl=1"
                     alt="p1">
                 <pre> {{this.id}}, {{this.burger_name}} </pre>
-                <form method="POST" action="/burgers/update?_method=put" class="button-size">
-                    <input type="hidden" name="burger_id" type="text" value={{this.id}}>
+                <form method="POST" method="PUT" action="/burgers/update?_method=put" class="button-size">
+                    <input type="hidden" name="burger_id" type="text" value={{this.burger_name}}>
                     <br>
                     <button type="submit" class="btn btn-defult"> Commence Tasting</button>
                 </form>
